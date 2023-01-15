@@ -36,17 +36,17 @@ rcon:
 # Servers in the ARK cluster
 servers: {}
 #  # one entry for each server in the cluster
-#  theisland:
-  # updateOnStart should be enabled only on the first server
-  updateOnStart: true
-  sessionName: "TheIsland"
-  message: "Welcome to TheIsland"
-  map: TheIsland
-  password: ""
-  maxPlayers: 10
-  xpMultiplier: 6
-#            mods:
-#              - 1234
+  theisland:
+    # updateOnStart should be enabled only on the first server
+    updateOnStart: true
+    sessionName: "TheIsland"
+    message: "Welcome to TheIsland"
+    map: TheIsland
+    password: ""
+    maxPlayers: 10
+    xpMultiplier: 6
+#    mods:
+#      - 1234
   customConfigMap:
     GameUserSettingsIni: |
       # Extinction GameUserSettings.ini
