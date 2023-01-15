@@ -34,8 +34,8 @@ rcon:
   password:
 
 # Servers in the ARK cluster
-servers: {}
-#  # one entry for each server in the cluster
+servers:
+# one entry for each server in the cluster
   theisland:
     # updateOnStart should be enabled only on the first server
     updateOnStart: true
