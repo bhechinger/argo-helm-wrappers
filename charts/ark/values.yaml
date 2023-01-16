@@ -31,8 +31,8 @@ ark-cluster:
   #  - "931434275"
 
   # Set RCON password for the whole cluster
-  rcon:
-    password: "password"
+#  rcon:
+#    password: "password"
 
   # Servers in the ARK cluster
   servers:
