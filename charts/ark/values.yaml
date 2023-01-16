@@ -1,93 +1,94 @@
-# Defaults to 1, we set this to 0 so servers don't start automatically after deploy
-replicaCount: 0
+ark-cluster:
+  # Defaults to 1, we set this to 0 so servers don't start automatically after deploy
+  replicaCount: 0
 
-# Attach pod directly to host network
-# Implies: `service.enabled: false`
-# Mutually exclusive: `hostPort`
-hostNetwork: false
+  # Attach pod directly to host network
+  # Implies: `service.enabled: false`
+  # Mutually exclusive: `hostPort`
+  hostNetwork: false
 
-# Attach specific ports to host node.
-# Implies: `service.enabled: false`
-# Mutually exclusive: `hostNetwork`
-hostPort: true
+  # Attach specific ports to host node.
+  # Implies: `service.enabled: false`
+  # Mutually exclusive: `hostNetwork`
+  hostPort: true
 
-# set to "ClusterFirstWithHostNet" when hostNetwork=true
-#
-# dnsPolicy: ClusterFirst
+  # set to "ClusterFirstWithHostNet" when hostNetwork=true
+  #
+  # dnsPolicy: ClusterFirst
 
-# Cluster name
-clusterName: arkcluster
+  # Cluster name
+  clusterName: arkcluster
 
-# Mods available in the cluster and enabled by default on all servers.
-# Mods are updated with the game and can be overwritten per server.
-mods: []
-#  - "731604991"
-#  - "889745138"
-#  - "893904615"
-#  - "1404697612"
-#  - "621154190"
-#  - "564895376"
-#  - "931434275"
+  # Mods available in the cluster and enabled by default on all servers.
+  # Mods are updated with the game and can be overwritten per server.
+  mods: []
+  #  - "731604991"
+  #  - "889745138"
+  #  - "893904615"
+  #  - "1404697612"
+  #  - "621154190"
+  #  - "564895376"
+  #  - "931434275"
 
-# Set RCON password for the whole cluster
-rcon:
-  password: "password"
-
-# Servers in the ARK cluster
-servers:
-# one entry for each server in the cluster
-  theisland:
-    # updateOnStart should be enabled only on the first server
-    updateOnStart: true
-    sessionName: "TheIsland"
-    message: "Welcome to TheIsland"
-    map: TheIsland
+  # Set RCON password for the whole cluster
+  rcon:
     password: "password"
-    maxPlayers: 10
-    xpMultiplier: 6
-#    mods:
-#      - 1234
-  customConfigMap:
-    GameUserSettingsIni: |
-      # Extinction GameUserSettings.ini
-      [ServerSettings]
-      XPMultiplier=6
-      ShowMapPlayerLocation=True
-      AllowThirdPersonPlayer=True
 
-  # Default ports used by the container. Can be set per server.
-  # ARK communicates ports to the client, so make sure the container port matches the external port!
-  # Using these default settings for a cluster only makes sense if you have an IP for each server.
-  containerPorts:
-    gameudp: 7777
-    queryudp: 27015
-    rcon: 32330
+  # Servers in the ARK cluster
+  servers:
+  # one entry for each server in the cluster
+    theisland:
+      # updateOnStart should be enabled only on the first server
+      updateOnStart: true
+      sessionName: "TheIsland"
+      message: "Welcome to TheIsland"
+      map: TheIsland
+      password: "password"
+      maxPlayers: 10
+      xpMultiplier: 6
+  #    mods:
+  #      - 1234
+    customConfigMap:
+      GameUserSettingsIni: |
+        # Extinction GameUserSettings.ini
+        [ServerSettings]
+        XPMultiplier=6
+        ShowMapPlayerLocation=True
+        AllowThirdPersonPlayer=True
 
-  persistence:
-    enabled: true
+    # Default ports used by the container. Can be set per server.
+    # ARK communicates ports to the client, so make sure the container port matches the external port!
+    # Using these default settings for a cluster only makes sense if you have an IP for each server.
+    containerPorts:
+      gameudp: 7777
+      queryudp: 27015
+      rcon: 32330
 
-    # game files from steam, the largest volume, includes installed mods
-    game:
-      storageClass: ceph-block
-      accessModes:
-        - ReadWriteOnce
-      size: 30Gi
-      mountPath: /arkserver
+    persistence:
+      enabled: true
 
-      # shared cluster files
-      cluster:
-        storageClass: ceph-filesystem
-        accessModes:
-          - ReadWriteMany
-        size: 200Mi
-        mountPath: /arkserver/ShooterGame/Saved/clusters
-
-      # contains the world save game and configuration files
-      # keeping a backup of this is enough to get your server back up
-      save:
-        volumeMode: Filesystem
+      # game files from steam, the largest volume, includes installed mods
+      game:
         storageClass: ceph-block
         accessModes:
           - ReadWriteOnce
-        size: 2Gi
-        mountPath: /arkserver/ShooterGame/Saved
+        size: 30Gi
+        mountPath: /arkserver
+
+        # shared cluster files
+        cluster:
+          storageClass: ceph-filesystem
+          accessModes:
+            - ReadWriteMany
+          size: 200Mi
+          mountPath: /arkserver/ShooterGame/Saved/clusters
+
+        # contains the world save game and configuration files
+        # keeping a backup of this is enough to get your server back up
+        save:
+          volumeMode: Filesystem
+          storageClass: ceph-block
+          accessModes:
+            - ReadWriteOnce
+          size: 2Gi
+          mountPath: /arkserver/ShooterGame/Saved
