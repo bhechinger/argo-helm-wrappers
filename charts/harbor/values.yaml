@@ -1,0 +1,40 @@
+secretKey: cFrnVkWyjynEMl45lkf60oGmmd5NG4WG
+externalURL: https://harbor.4amlunch.net
+registry:
+  credentials:
+    password: eLmQRxHPr8k8qg2YzgZlvsR7LPpXMGCdV
+expose:
+  ingress:
+    hosts:
+      core: harbor.4amlunch.net
+      notary: notary.4amlunch.net
+persistence:
+  persistentVolumeClaim:
+    registry:
+      storageClass: ceph-block
+      size: 50Gi
+    chartmuseum:
+      storageClass: ceph-block
+      size: 50Gi
+    jobservice:
+      jobLog:
+        storageClass: ceph-block
+      scanDataExports:
+        storageClass: ceph-block
+    redis:
+      storageClass: ceph-block
+      size: 10Gi
+    trivy:
+      storageClass: ceph-block
+      size: 10Gi
+database:
+  type: external
+    external:
+      host: pgsql-shared.datalake.svc.cluster.local
+      username: harbor
+      password: 8iO0OfLODeTTAZrOvqHv4biQy0pRpg6x
+      coreDatabase: harbor_core
+      notaryServerDatabase: harbor_notary_server
+      notarySignerDatabase: harbor_notary_signer
+metrics:
+  enabled: true
