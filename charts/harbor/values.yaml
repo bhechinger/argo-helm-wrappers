@@ -1,8 +1,8 @@
-secretKey: cFrnVkWyjynEMl45lkf60oGmmd5NG4WG
+existingSecretKey: harbor-secrets
 externalURL: https://harbor.4amlunch.net
 registry:
   credentials:
-    password: eLmQRxHPr8k8qg2YzgZlvsR7LPpXMGCdV
+    existingSecret: harbor-secrets
 expose:
   ingress:
     hosts:
@@ -32,7 +32,7 @@ database:
   external:
     host: pgsql-shared.datalake.svc.cluster.local
     username: harbor
-    password: 8iO0OfLODeTTAZrOvqHv4biQy0pRpg6x
+    existingSecret: harbor-secrets
     coreDatabase: harbor_core
     notaryServerDatabase: harbor_notary_server
     notarySignerDatabase: harbor_notary_signer
