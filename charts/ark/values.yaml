@@ -31,7 +31,7 @@ mods: []
 
 # Set RCON password for the whole cluster
 rcon:
-  password:
+  password: "password"
 
 # Servers in the ARK cluster
 servers:
@@ -42,7 +42,7 @@ servers:
     sessionName: "TheIsland"
     message: "Welcome to TheIsland"
     map: TheIsland
-    password: ""
+    password: "password"
     maxPlayers: 10
     xpMultiplier: 6
 #    mods:
