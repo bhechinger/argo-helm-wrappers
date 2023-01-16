@@ -29,12 +29,12 @@ persistence:
       size: 10Gi
 database:
   type: external
-    external:
-      host: pgsql-shared.datalake.svc.cluster.local
-      username: harbor
-      password: 8iO0OfLODeTTAZrOvqHv4biQy0pRpg6x
-      coreDatabase: harbor_core
-      notaryServerDatabase: harbor_notary_server
-      notarySignerDatabase: harbor_notary_signer
+  external:
+    host: pgsql-shared.datalake.svc.cluster.local
+    username: harbor
+    password: 8iO0OfLODeTTAZrOvqHv4biQy0pRpg6x
+    coreDatabase: harbor_core
+    notaryServerDatabase: harbor_notary_server
+    notarySignerDatabase: harbor_notary_signer
 metrics:
   enabled: true
