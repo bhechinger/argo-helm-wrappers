@@ -1,4 +1,7 @@
 minecraft:
+  securityContext:
+    fsGroup: 1000
+
   serviceAnnotations:
     mc-router.itzg.me/externalServerName: "vanilla.4amlunch.net"
 
@@ -31,8 +34,8 @@ minecraft:
   persistence:
     storageClass: "ceph-block"
     dataDir:
-      enabled: trua
-      Size: 10Gi
+      enabled: true
+      size: 25Gi
 
   mcbackup:
     enabled: true
@@ -40,5 +43,5 @@ minecraft:
     persistence:
       storageClass: "ceph-block"
       backupDir:
-        enabled: enabled
-        Size: 100Gi
+        enabled: true
+        size: 100Gi
