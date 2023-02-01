@@ -43,13 +43,13 @@ minecraft:
     storageClass: "ceph-block"
     dataDir:
       enabled: true
-      Size: 25Gi
+      Size: 10Gi
 
   mcbackup:
     enabled: true
     destDir: /backups
     persistence:
-      storageClass: "ceph-block"
+      storageClass: "ceph-filesystem"
       backupDir:
         enabled: true
         Size: 100Gi
