@@ -28,17 +28,17 @@ minecraft:
       secretKey: rcon-password
       serviceType: ClusterIP
 
+  persistence:
+    storageClass: "ceph-block"
+    dataDir:
+      enabled: trua
+      Size: 10Gi
+
+  mcbackup:
+    enabled: true
+    destDir: /backups
     persistence:
       storageClass: "ceph-block"
-      dataDir:
-        enabled: trua
-        Size: 10Gi
-
-    mcbackup:
-      enabled: true
-      destDir: /backups
-      persistence:
-        storageClass: "ceph-filesystem"
-        backupDir:
-          enabled: enabled
-          Size: 100Gi
+      backupDir:
+        enabled: enabled
+        Size: 100Gi
