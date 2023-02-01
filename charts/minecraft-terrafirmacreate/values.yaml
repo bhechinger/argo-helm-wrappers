@@ -1,0 +1,55 @@
+minecraft:
+  extraVolumes:
+    - volumeMounts:
+      - name: modpacks
+        mountPath: /modpacks
+        readOnly: true
+        subPath: packs
+    - volumes:
+      - name: modpacks
+        persistentVolumeClaim:
+          claimName: minecraft-web
+
+  serviceAnnotations:
+    mc-router.itzg.me/externalServerName: "terrafirmacreate.4amlunch.net"
+
+  minecraftServer:
+    eula: "TRUE"
+    version: "1.18.2"
+    type: "FORGE"
+    forgeVersion: "40.1.80"
+    packwizURL: "https://mc.4amlunch.net/packs/TerraFirmaCreate/pack.toml"
+    difficulty: normal
+    levelType: "tfc:tng"
+    whitelist:
+      - BlockyJackBauer
+      - io42
+    ops:
+      - BlockyJackBauer
+    maxWorldSize: 60000
+    enableCommandBlock: false
+    forcegameMode: true
+    motd: "Welcome to TerraFirmaCreate on Kubernetes!"
+    memory: 4G
+
+    rcon:
+      enabled: true
+      port: 25575
+      existingSecret: minecraft-server
+      secretKey: rcon-password
+      serviceType: ClusterIP
+
+  persistence:
+    storageClass: "ceph-block"
+    dataDir:
+      enabled: true
+      Size: 25Gi
+
+  mcbackup:
+    enabled: true
+    destDir: /backups
+    persistence:
+      storageClass: "ceph-block"
+      backupDir:
+        enabled: true
+        Size: 100Gi
