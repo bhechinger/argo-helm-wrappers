@@ -1,5 +1,5 @@
 # Defaults to 1, we set this to 0 so servers don't start automatically after deploy
-replicaCount: 0
+replicaCount: 1
 
 image:
   tag: kinetic
@@ -13,6 +13,9 @@ hostNetwork: false
 # Implies: `service.enabled: false`
 # Mutually exclusive: `hostNetwork`
 hostPort: true
+
+securityContext:
+  fsGroup: 1000
 
 # set to "ClusterFirstWithHostNet" when hostNetwork=true
 #
@@ -59,13 +62,13 @@ servers:
         ShowMapPlayerLocation=True
         AllowThirdPersonPlayer=True
 
-    # Default ports used by the container. Can be set per server.
-    # ARK communicates ports to the client, so make sure the container port matches the external port!
-    # Using these default settings for a cluster only makes sense if you have an IP for each server.
-    containerPorts:
-      gameudp: 7777
-      queryudp: 27015
-      rcon: 32330
+# Default ports used by the container. Can be set per server.
+# ARK communicates ports to the client, so make sure the container port matches the external port!
+# Using these default settings for a cluster only makes sense if you have an IP for each server.
+containerPorts:
+  gameudp: 7777
+  queryudp: 27015
+  rcon: 32330
 
 persistence:
   enabled: true
@@ -95,3 +98,6 @@ persistence:
       - ReadWriteOnce
     size: 2Gi
     mountPath: /arkserver/ShooterGame/Saved
+
+startupProbe:
+  initialDelaySeconds: 1800

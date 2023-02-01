@@ -24,7 +24,7 @@ minecraft:
     rcon:
       enabled: true
       port: 25575
-      existingSecret: rcon-vanilla
+      existingSecret: minecraft-server
       secretKey: rcon-password
       serviceType: ClusterIP
 
