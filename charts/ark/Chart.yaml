@@ -24,5 +24,5 @@ appVersion: "1.0"
 
 dependencies:
 - name: ark-cluster
-  version: 0.1.9
-  repository: https://drpsychick.github.io/ark-server-charts
+  version: 0.1.11
+  repository: https://charts.4amlunch.net
