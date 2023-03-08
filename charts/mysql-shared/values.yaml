@@ -1,0 +1,4 @@
+mysql-shared:
+  secretName: mysql-shared
+  tls:
+    useSelfSigned: true
