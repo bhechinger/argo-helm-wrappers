@@ -1,0 +1,78 @@
+matrix:
+  image:
+    tag: v0.11.1
+  service:
+    main:
+      ports:
+        https:
+          enabled: false
+  ingress:
+    main:
+      enabled: true
+        hosts:
+          - host: matrix.4amlunch.net
+            paths:
+              - path: /
+                pathType: Prefix
+              - path: /.well-known/matrix/server
+                pathType: Prefix
+              - path: /.well-known/matrix/client
+                pathType: Prefix
+          - host: 4amlunch.net
+            paths:
+              - path: /.well-known/matrix/
+                pathType: Prefix
+              - path: /.well-known/matrix/server
+                pathType: Prefix
+              - path: /.well-known/matrix/client
+                pathType: Prefix
+  persistence:
+    media:
+      enabled: true
+      size: 25Gi
+      storageClass: ceph-block
+    jetstream:
+      enabled: true
+      size: 10Gi
+      storageClass: ceph-block
+  database:
+    connection_string: "postgres://{{ matrix.db.username }}:{{ matrix.db.password }}@{{ matrix.db.host }}:{{ matrix.db.port }}/{{ matrix.db.database }}?sslmode=disable"
+    max_open_conns: 50
+  postgresql:
+    enabled: true
+  dendrite:
+    global:
+      server_name: 4amlunch.net
+      well_known_server_name: matrix.4amlunch.net:443
+      well_known_client_name: matrix.4amlunch.net:443
+      mscs:
+        - msc2946
+        - msc2444
+        - msc2836
+      presence:
+        enable_outbound: true
+        enable_inbound: true
+      metrics:
+        enabled: true
+      old_private_keys:
+        - public_key: ajvLEUl3a/zg11cU9dH7IKIbgIevC12rCnRDeeWmaek
+          key_id: ed25519:a_Jqrd
+          expired_at: 1615306962408
+        - public_key: LG6GI/cm/b2BIw8RlbE86/pm6hBqRqBgT+6ewesAZUE
+          key_id: ed25519:a_frtt
+          expired_at: 1615850509971
+        - public_key: /B1CB0Xr3pKkY4V3nvRJ1jhATNpeAkSkDfygPZxHxQs
+          key_id: ed25519:pNee7F
+          expired_at: 1661837902301
+        - public_key: cZl8sR7HiV9Jk/lfFu6HBND7XwauZ+yK1kC6XH+oBP0
+          key_id: ed25519:a_Oadl
+          expired_at: 1663241717315
+    matrix_key_secret:
+      enabled: true
+      existingSecret: matrix-dendrite-key
+  clientapi:
+    config:
+      registration_disabled: true
+      registration_shared_secret: "{{ matrix.registration_shared_secret }}"
+  podAnnotations:
+    secret.reloader.stakater.com/reload: "dendrite-config":1
