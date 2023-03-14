@@ -1,0 +1,102 @@
+alliance-auth:
+  auth:
+    sitename: "A Band Apart"
+    protocol: "https"
+    subdomain: "auth"
+    domain: "aba-eve.com"
+    debug: False
+    existingSecret: aba-prod-auth-secret
+    # secret contains a key named "secretKey"
+
+  db:
+    name: "alliance_auth_aba_prod"
+    host: moco-shared-primary.datalake.svc.cluster.local
+    port: 3306
+    existingSecret: aba-prod-db-secret
+    # secret contains the keys "username" and "password"
+
+  redis:
+    host: shared-redis-master.datalake.svc.cluster.local
+    port: 6379
+    existingSecret: aba-prod-redis-secret
+    db: 3
+
+  email:
+    host: mail.gandi.net
+    port: 587
+    useTLS: true
+    defaultFrom: no-reply@aba-eve.com
+    existingSecret: aba-prod-email-secret
+    # secret contains the keys "username" and "password"
+
+  esi:
+    email: "wonko@4amlunch.net"
+    existingSecret: aba-prod-esi-secret
+    # secret contains they keys "clientId" and "clientSecret"
+
+  celery:
+    workers: 4
+
+  volumes:
+    static:
+      storageClass: local-path
+
+  services:
+    discord:
+      enabled: true
+      existingSecret: aba-prod-discord-secret
+      guildId: "186540132491329537"
+      syncName: False
+    autogroups:
+      enabled: true
+    eveuniverse:
+      enabled: true
+    structures:
+      enabled: true
+    structuretimers:
+      enabled: true
+    fittings:
+      enabled: true
+    mailrelay:
+      enabled: true
+    killtracker:
+      enabled: true
+    moonmining:
+      enabled: true
+    memberaudit:
+      enabled: true
+    aa_rss_to_discord:
+      enabled: true
+    discordproxy:
+      enabled: true
+      existingSecret: aba-prod-discord-secret
+    discordbot:
+      enabled: true
+      cogs:
+        sov: false
+    blueprints:
+      enabled: true
+    marketmanager:
+      enabled: true
+    securegroups:
+      enabled: true
+    buybackprogram:
+      enabled: true
+    standingsrequests:
+      enabled: true
+      STANDINGS_API_CHARID: "242537709"
+      STR_ALLIANCE_IDS:
+        - "99004295"
+    taskmonitor:
+      enabled: true
+    celeryanalytics:
+      enabled: true
+    hrapplications:
+      enabled: true
+    optimer:
+      enabled: true
+    corputils:
+      enabled: true
+      autoupdate: true
+    fleetpings:
+      enabled: true
