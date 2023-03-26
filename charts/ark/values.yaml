@@ -66,6 +66,7 @@ ark-cluster:
           ShowMapPlayerLocation=True
           AllowThirdPersonPlayer=True
           MaxGateFrameOnSaddles=0
+          OverrideStructurePlatformPrevention=True
 
   # Default ports used by the container. Can be set per server.
   # ARK communicates ports to the client, so make sure the container port matches the external port!
