@@ -48,7 +48,7 @@ ark-cluster:
       # updateOnStart should be enabled only on the first server
       updateOnStart: true
       name: "theisland"
-      sessionName: "TheIsland"
+      sessionName: "MonkeIsland"
       message: "Welcome to Monke Island"
       map: TheIsland
   #    password: "password"
