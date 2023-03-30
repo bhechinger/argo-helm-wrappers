@@ -1,0 +1,23 @@
+groundcover:
+  timescaledb-single:
+    secrets:
+      credentialsSevretName: timescaledb-credentials
+
+  rbac:
+    pspEnabled: false
+
+  victoria-metrics-single:
+    rbac:
+      pspEnabled: false
+
+  victoria-metrics-agent:
+    rbac:
+      pspEnabled: false
+
+  timescaledb-single:
+    rbac:
+      pspEnabled: false
+
+  loki:
+    rbac:
+      pspEnabled: false
