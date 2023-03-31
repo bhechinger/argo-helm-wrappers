@@ -1,12 +1,14 @@
 groundcover:
-  timescaledb-single:
-    secrets:
-      credentialsSevretName: timescaledb-credentials
-
+  groundcoverPredefinedTokenSecret:
+    secretName: groundcover-vars
+    secretKey: token
   rbac:
     pspEnabled: false
 
   victoria-metrics-single:
+    server:
+      persistentVolume:
+        storageClass: ceph-block
     rbac:
       pspEnabled: false
 
@@ -15,9 +17,19 @@ groundcover:
       pspEnabled: false
 
   timescaledb-single:
+    secrets:
+      credentialsSevretName: timescaledb-credentials
+    persistentVolumes:
+      data:
+        storageClass: ceph-block
+      wal:
+        storageClass: ceph-block
     rbac:
       pspEnabled: false
 
   loki:
+    persistence:
+      storageClassName: ceph-block
     rbac:
       pspEnabled: false
+
