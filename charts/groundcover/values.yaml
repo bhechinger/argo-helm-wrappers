@@ -1,7 +1,8 @@
 groundcover:
-  groundcoverPredefinedTokenSecret:
-    secretName: groundcover-vars
-    secretKey: token
+  global:
+    groundcoverPredefinedTokenSecret:
+      secretName: groundcover-vars
+      secretKey: token
   rbac:
     pspEnabled: false
 
