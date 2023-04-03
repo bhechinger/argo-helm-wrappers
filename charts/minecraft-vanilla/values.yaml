@@ -38,6 +38,9 @@ minecraft:
   mcbackup:
     enabled: true
     destDir: /backups
+    resources:
+      requests:
+        cpu: 250m
     persistence:
       storageClass: "ceph-block"
       backupDir:
