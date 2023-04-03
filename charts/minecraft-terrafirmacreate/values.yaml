@@ -10,6 +10,10 @@ minecraft:
         persistentVolumeClaim:
           claimName: minecraft-web
 
+  resources:
+    requests:
+      cpu: 250m
+
   serviceAnnotations:
     mc-router.itzg.me/externalServerName: "terrafirmacreate.4amlunch.net"
 

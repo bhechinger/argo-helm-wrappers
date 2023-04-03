@@ -2,14 +2,15 @@ minecraft:
   serviceAnnotations:
     mc-router.itzg.me/externalServerName: "vanilla.4amlunch.net"
 
+  resources:
+    requests:
+      cpu: 250m
+
   minecraftServer:
     eula: "TRUE"
     version: "1.19.3"
     type: "VANILLA"
-#    forgeVersion: "40.1.80"
-#    packwizURL: "https://mc.4amlunch.net/packs/TerraFirmaCreate/pack.toml"
     difficulty: normal
-#    levelType: "tfc:tng"
     whitelist:
       - BlockyJackBauer
       - io42
