@@ -1,0 +1,26 @@
+chartmuseum:
+  env:
+    existingSecret: chartmuseum-secret
+    existingSecretMappings:
+      BASIC_AUTH_USER: basic-auth-user
+      BASIC_AUTH_PASS: basic-auth-pass
+    open:
+      STORAGE: local
+      DISABLE_API: false
+      AUTH_ANONYMOUS_GET: true
+      CACHE: redis
+      CACHE_REDIS_ADDR: shared-redis-master.datalake.svc.cluster.local
+      CACHE_REDIS_DB: 0
+    existingSecret: chartmuseum
+    existingSecretMapping:
+      CACHE_REDIS_PASSWORD: redis-password
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 10Gi
+    storageClass: ceph-block
+  ingress:
+    enabled: true
+    hosts:
+      - name: charts.4amlunch.net
+        pathType: ImplentationSpecific
