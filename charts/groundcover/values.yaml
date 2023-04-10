@@ -19,7 +19,7 @@ groundcover:
 
   timescaledb-single:
     secrets:
-      credentialsSevretName: timescaledb-credentials
+      credentialsSevretName: timescaledb-vars
     persistentVolumes:
       data:
         storageClass: ceph-block
