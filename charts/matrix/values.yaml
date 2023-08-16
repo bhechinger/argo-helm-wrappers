@@ -75,4 +75,4 @@ matrix:
       registration_disabled: true
       registration_shared_secret: "{{ matrix.registration_shared_secret }}"
   podAnnotations:
-    secret.reloader.stakater.com/reload: "dendrite-config":1
+    secret.reloader.stakater.com/reload: "dendrite-config"
