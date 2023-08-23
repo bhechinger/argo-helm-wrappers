@@ -1,6 +1,6 @@
 matrix:
   image:
-    tag: v0.11.1
+    tag: v0.13.2
   service:
     main:
       ports:
@@ -46,7 +46,6 @@ matrix:
       well_known_server_name: matrix.4amlunch.net:443
       well_known_client_name: matrix.4amlunch.net:443
       mscs:
-        - msc2946
         - msc2444
         - msc2836
       presence:
