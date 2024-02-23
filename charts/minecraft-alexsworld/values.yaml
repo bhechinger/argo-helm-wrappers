@@ -20,9 +20,9 @@ minecraft:
   minecraftServer:
     eula: "TRUE"
     version: "1.20.1"
-    type: "CURSEFORGE"
+    type: "FORGE"
     forgeVersion: "47.2.0"
-    cfServerMod: "https://mc.4amlunch.net/packs/alexs-world.zip"
+    cfServerMod: "https://mc.4amlunch.net/packs/alexs-world/pack.toml"
     difficulty: normal
     levelType: DEFAULT
     whitelist:
