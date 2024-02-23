@@ -22,7 +22,7 @@ minecraft:
     version: "1.20.1"
     type: "CURSEFORGE"
     forgeVersion: "47.2.0"
-    cfServerMod: "https://mc.4amlunch.net/packs/Alex's World.zip"
+    cfServerMod: "https://mc.4amlunch.net/packs/alexs-world.zip"
     difficulty: normal
     levelType: DEFAULT
     whitelist:
