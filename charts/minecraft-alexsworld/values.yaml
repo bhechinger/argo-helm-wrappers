@@ -20,6 +20,10 @@ minecraft:
   serviceAnnotations:
     mc-router.itzg.me/externalServerName: "alexsworld.4amlunch.net"
 
+  extraEnv:
+    EXISTING_WHITELIST_FILE: SYNCHRONIZE
+    EXISTING_OPS_FILE: SYNCHRONIZE
+
   minecraftServer:
     eula: "TRUE"
     version: "1.20.1"
@@ -40,9 +44,6 @@ minecraft:
     forcegameMode: true
     motd: "Welcome to Alex's World!"
     memory: 4G
-    extraEnv:
-      EXISTING_WHITELIST_FILE: SYNCHRONIZE
-      EXISTING_OPS_FILE: SYNCHRONIZE
 
     rcon:
       enabled: true
