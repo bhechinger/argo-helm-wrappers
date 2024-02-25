@@ -1,7 +1,7 @@
-image:
-  tag: 491e37fa63ffef22c9ac1f6ec2fb4cc793735799cd91bafa1e5790aa39e9b313
-
 minecraft:
+  image:
+    tag: 491e37fa63ffef22c9ac1f6ec2fb4cc793735799cd91bafa1e5790aa39e9b313
+
   extraVolumes:
     - volumeMounts:
       - name: modpacks
