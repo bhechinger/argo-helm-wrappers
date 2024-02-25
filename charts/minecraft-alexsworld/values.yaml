@@ -40,6 +40,9 @@ minecraft:
     forcegameMode: true
     motd: "Welcome to Alex's World!"
     memory: 4G
+    extraEnv:
+      EXISTING_WHITELIST_FILE: SYNCHRONIZE
+      EXISTING_OPS_FILE: SYNCHRONIZE
 
     rcon:
       enabled: true
