@@ -32,13 +32,8 @@ minecraft:
     packwizURL: "https://mc.4amlunch.net/packs/alexs-world/pack.toml"
     difficulty: normal
     levelType: DEFAULT
-    whitelist:
-      - BlockyJackBauer
-      - io42
-      - SuperSammyDino
-      - BennyPlayerX
-    ops:
-      - BlockyJackBauer
+    whitelist: BlockyJackBauer io42 SuperSammyDino BennyPlayerX
+    ops: BlockyJackBauer
     maxWorldSize: 60000
     enableCommandBlock: false
     forcegameMode: true
