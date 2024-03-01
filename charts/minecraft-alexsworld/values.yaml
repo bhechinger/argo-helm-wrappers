@@ -23,6 +23,7 @@ minecraft:
   extraEnv:
     EXISTING_WHITELIST_FILE: SYNCHRONIZE
     EXISTING_OPS_FILE: SYNCHRONIZE
+    SPAWN_PROTECTION: 0
 
   minecraftServer:
     eula: "TRUE"
