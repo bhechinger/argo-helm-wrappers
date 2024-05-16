@@ -2,8 +2,8 @@ alliance-auth:
   auth:
     sitename: "A Band Apart"
     protocol: "https"
-    subdomain: "aba"
-    domain: "4amlunch.net"
+    subdomain: "auth"
+    domain: "aba-eve.com"
     debug: False
     existingSecret: aba-prod-auth-secret
     # secret contains a key named "secretKey"
