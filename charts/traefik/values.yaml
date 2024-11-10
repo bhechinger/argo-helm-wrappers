@@ -10,7 +10,8 @@ traefik:
 
   ports:
     web:
-      redirectTo: websecure
+      redirectTo:
+        port: websecure
 
   env:
     - name: CF_API_EMAIL
