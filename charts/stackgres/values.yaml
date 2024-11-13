@@ -1,0 +1,4 @@
+stackgres:
+  adminui:
+    service:
+      type: ClusterIP
