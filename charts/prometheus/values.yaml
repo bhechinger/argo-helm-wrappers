@@ -1,6 +1,5 @@
-prometheus:
+prometheus-operator:
   grafana:
-
     ingress:
       enabled: true
       ingressClassName: traefik
@@ -10,4 +9,11 @@ prometheus:
         - grafana.4amlunch.net
 
     persistence:
-      storageClassName: "ssd"
+      enabled: true
+      type: sts
+      storageClassName: ssd
+      accessModes:
+        - ReadWriteOnce
+      size: 20Gi
+      finalizers:
+        - kubernetes.io/pvc-protection
