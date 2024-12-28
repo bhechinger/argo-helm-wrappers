@@ -1,0 +1,11 @@
+prometheus:
+  grafana:
+
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      hosts:
+        - grafana.4amlunch.net
+
+    persistence:
+      storageClassName: "ssd"
