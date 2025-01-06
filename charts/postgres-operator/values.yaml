@@ -1,0 +1,4 @@
+postgres-operator:
+  enableJsonLogging: true
+  configKubernetes:
+    pod_environment_secret: "postgres-pod-secrets"
