@@ -8,8 +8,8 @@ appVersion: "1.0"
 
 dependencies:
   - name: postgres-operator
-    version: latest
+    version: 1.14.0
     repository: https://opensource.zalando.com/postgres-operator/charts/postgres-operator
   - name: postgres-operator-ui
-    version: latest
+    version: 1.14.0
     repository: https://opensource.zalando.com/postgres-operator/charts/postgres-operator-ui
