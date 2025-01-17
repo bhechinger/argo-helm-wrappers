@@ -24,7 +24,7 @@ cluster:
       - name: daily-backup
         schedule: "0 0 0 * * *"
         backupOwnerReference: self
-      - name: test-backups
-        schedule: "* * * * * *"
-        backupOwnerReference: self
+#      - name: test-backups
+#        schedule: "* * * * * *"
+#        backupOwnerReference: self
     retentionPolicy: "30d"
