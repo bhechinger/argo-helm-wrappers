@@ -4,11 +4,11 @@ cluster:
   cluster:
     instances: 3
   storage:
-    size: 100G
+    size: 100Gi
     storageClass: ssd-large
   walStorage:
     enabled: true
-    size: 10G
+    size: 10Gi
     storageClass: ssd
   backups:
     enabled: true
