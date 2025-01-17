@@ -1,0 +1,12 @@
+apiVersion: v2
+name: pgsql-shared
+description: A Helm chart for Kubernetes
+
+type: application
+version: 0.1.0
+appVersion: "1.0"
+
+dependencies:
+  - name: pgsql-shared
+    version: 0.23.0
+    repository: https://cloudnative-pg.github.io/charts

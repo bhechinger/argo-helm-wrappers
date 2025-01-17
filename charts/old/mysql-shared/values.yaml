@@ -1,4 +1,0 @@
-mysql-innodbcluster:
-  secretName: mysql-shared
-  tls:
-    useSelfSigned: true

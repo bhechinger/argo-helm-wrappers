@@ -1,0 +1,20 @@
+pgsql-shared:
+  type: postgis
+  mode: standalone
+  cluster:
+    instances: 3
+  backups:
+    enabled: true
+    provider: s3
+    endpointURL: "s3.us-west-001.backblazeb2.com"
+    s3:
+      region: "us-west-001"
+      bucket: "4amlunch-rackspace-db"
+      path: "/backups/pgsql-shared"
+      accessKey: "001318001d4c5af0000000014"
+      secretKey: "K001aJZm3HgOe789Ri1MVAaj2AShlp0"
+    scheduledBackups:
+      - name: daily-backup
+        schedule: "0 0 0 * * *"
+        backupOwnerReference: self
+    retentionPolicy: "30d"
