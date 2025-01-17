@@ -3,6 +3,13 @@ cluster:
   mode: standalone
   cluster:
     instances: 3
+  storage:
+    size: 100G
+    storageClass: ssd-large
+  walStorage:
+    enabled: true
+    size: 10G
+    storageClass: ssd
   backups:
     enabled: true
     provider: s3
