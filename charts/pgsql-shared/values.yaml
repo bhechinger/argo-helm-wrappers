@@ -1,15 +1,15 @@
-pgsql-shared:
+cluster:
   type: postgis
   mode: standalone
   cluster:
     instances: 3
-  storage:
-    size: 100Gi
-    storageClass: ssd-large
-  walStorage:
-    enabled: true
-    size: 10Gi
-    storageClass: ssd
+    storage:
+      size: 100Gi
+      storageClass: ssd-large
+    walStorage:
+      enabled: true
+      size: 10Gi
+      storageClass: ssd
   backups:
     enabled: true
     provider: s3
