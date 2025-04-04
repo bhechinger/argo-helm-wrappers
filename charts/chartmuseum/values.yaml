@@ -10,7 +10,7 @@ chartmuseum:
       DISABLE_API: false
       AUTH_ANONYMOUS_GET: true
       CACHE: redis
-      CACHE_REDIS_ADDR: redis-shared-leader.datalake.svc.cluster.local
+      CACHE_REDIS_ADDR: redis-shared-leader.datalake.svc.cluster.local:6379
       CACHE_REDIS_DB: 0
   persistence:
     enabled: true
