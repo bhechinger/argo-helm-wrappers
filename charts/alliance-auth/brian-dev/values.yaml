@@ -24,7 +24,7 @@ alliance-auth:
     # secret contains the keys "username" and "password"
 
   redis:
-    host: redis-brian.datalake.svc.cluster.local
+    host: redis-brian.alliance-auth.svc.cluster.local
     port: 6379
     existingSecret: aba-prod-redis-secret
     db: 1
