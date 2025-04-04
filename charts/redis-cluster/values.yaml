@@ -1,0 +1,3 @@
+redis-cluster:
+  redisCluster:
+    clusterSize: 3
