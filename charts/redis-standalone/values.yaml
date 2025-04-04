@@ -1,0 +1,20 @@
+redis:
+  redisStandalone:
+    redisSecret:
+      secretName: redis-password
+      secretKey: redis-password
+  storageSpec:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: ssd
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 10Gi
+    nodeConfVolume: true
+    nodeConfVolumeClaimTemplate:
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 10Gi
