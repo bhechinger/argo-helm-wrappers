@@ -1,6 +1,9 @@
 redis-cluster:
   redisCluster:
     clusterSize: 3
+    redisSecret:
+      secretName: redis-password
+      secretKey: redis-password
   storageSpec:
     volumeClaimTemplate:
       spec:
