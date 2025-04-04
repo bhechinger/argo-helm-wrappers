@@ -48,6 +48,7 @@ alliance-auth:
   volumes:
     static:
       storageClass: ssd
+      capacity: 5Gi
 
   services:
     discord:
