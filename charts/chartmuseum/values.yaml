@@ -17,8 +17,8 @@ chartmuseum:
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
-    size: 10Gi
-    storageClass: sata
+    size: 100Gi
+    storageClass: ssd-large
   ingress:
     enabled: true
     hosts:
