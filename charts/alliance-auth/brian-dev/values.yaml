@@ -24,7 +24,7 @@ alliance-auth:
     # secret contains the keys "username" and "password"
 
   redis:
-    host: shared-redis-master.datalake.svc.cluster.local
+    host: redis-shared-leader.datalake.svc.cluster.local
     port: 6379
     existingSecret: aba-prod-redis-secret
     db: 1
@@ -47,7 +47,7 @@ alliance-auth:
 
   volumes:
     static:
-      storageClass: ceph-block
+      storageClass: ssd-large
 
   services:
     discord:
